@@ -19,7 +19,7 @@
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    
+
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -28,16 +28,16 @@
     return self;
 }
 
-/// controller中如果通过 cell = [[CustomCell4 alloc]init];  来初始化(这样写就不会复用)
-/// 那就会走这里，然后走 initWithStyle ，但因为这个方法已废弃，就尽量不用
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        
-    }
-    return self;
-}
+/// controller中如果通过 cell = [[CustomCell4 alloc]init];  来初始化
+/// 那就会走这里，然后走 initWithStyle ，但因为这个方法已废弃，就尽量不用 Frame is ignored. The size will be specified by the table view width and row height.
+//- (instancetype)initWithFrame:(CGRect)frame
+//{
+//    self = [super initWithFrame:frame];
+//    if (self) {
+//
+//    }
+//    return self;
+//}
 
 //被复用之前调用
 - (void)prepareForReuse{
