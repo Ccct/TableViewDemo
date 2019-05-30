@@ -18,17 +18,17 @@
     }
 }
 
-/// 通过xib载入cell 第二调用
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    
-    if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
-        
-        self = [[[NSBundle mainBundle] loadNibNamed:@"CustomCell4" owner:self options:nil] firstObject];
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        NSLog(@"载入cell完成");
-    }
-    return self;
-}
+/// 通过xib载入cell 如果 先在控制器注册了 ：registerNib，并且 dequeueReusableCellWithIdentifier: forIndexPath: 用这个载入cell， 就不调用这里
+//- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+//
+//    if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
+//
+//        self = [[[NSBundle mainBundle] loadNibNamed:@"CustomCell4" owner:self options:nil] firstObject];
+//        self.selectionStyle = UITableViewCellSelectionStyleNone;
+//        NSLog(@"载入cell完成");
+//    }
+//    return self;
+//}
 
 /// 通过xib载入cell 第三调用
 /// 把 cell 解码出来。比如之前曾把cell压缩存在文件里，现在要把它还原出来。解压出来的cell的属性都是之前存起来的。
@@ -45,7 +45,7 @@
 /// 创建cell时会先调initWithCoder，再调awakeFromNib。但由于调initWithCoder时引出的一些子view可能为nil，所以实际操作中一般把初始化放在awakeFromNib里。
 - (void)awakeFromNib{
     [super awakeFromNib];
-    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 //被复用之前调用

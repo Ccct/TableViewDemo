@@ -39,7 +39,7 @@
         //注册cell
 //        [_tableView registerClass:[CustomCell2 class] forCellReuseIdentifier:[CustomCell2 reuseIdentifier]];
 //        [_tableView registerNib:[UINib nibWithNibName:@"CustomCell3" bundle:nil] forCellReuseIdentifier:[CustomCell3 reuseIdentifier]];
-        [_tableView registerNib:[UINib nibWithNibName:@"CustomCell4" bundle:nil] forCellReuseIdentifier:[CustomCell4 reuseIdentifier]];
+        [_tableView registerNib:[UINib nibWithNibName:@"CustomCell4" bundle:nil] forCellReuseIdentifier:NSStringFromClass([CustomCell4 class])];
         //注册headerfooter
         [_tableView registerNib:[UINib nibWithNibName:@"CustomHeadFootView" bundle:nil] forHeaderFooterViewReuseIdentifier:[CustomHeadFootView reuseIdentifier]];
     }

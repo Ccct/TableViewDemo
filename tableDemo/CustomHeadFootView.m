@@ -46,9 +46,6 @@
     NSLog(@"header复用");
 }
 
-
-
-
 //布局
 - (void)layoutSubviews{
     [super layoutSubviews];
