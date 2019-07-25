@@ -57,10 +57,10 @@
 
 
 
-//布局
-- (void)layoutSubviews{
-    [super layoutSubviews];
-}
+//布局（布局代码不要写在这里面，因为每当cell绘制时都会走此方法）
+//- (void)layoutSubviews{
+//    [super layoutSubviews];
+//}
 
 + (NSString *)reuseIdentifier {
     static NSString *reuseIdentifier;
