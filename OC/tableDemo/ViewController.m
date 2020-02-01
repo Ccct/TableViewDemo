@@ -39,7 +39,7 @@
         //注册cell
 //        [_tableView registerClass:[CustomCell2 class] forCellReuseIdentifier:[CustomCell2 reuseIdentifier]];
 //        [_tableView registerNib:[UINib nibWithNibName:@"CustomCell3" bundle:nil] forCellReuseIdentifier:[CustomCell3 reuseIdentifier]];
-        [_tableView registerNib:[UINib nibWithNibName:@"CustomCell4" bundle:nil] forCellReuseIdentifier:NSStringFromClass([CustomCell4 class])];
+//        [_tableView registerNib:[UINib nibWithNibName:@"CustomCell4" bundle:nil] forCellReuseIdentifier:NSStringFromClass([CustomCell4 class])];
         //注册headerfooter
         [_tableView registerNib:[UINib nibWithNibName:@"CustomHeadFootView" bundle:nil] forHeaderFooterViewReuseIdentifier:[CustomHeadFootView reuseIdentifier]];
     }
@@ -82,20 +82,22 @@
     // 第三种写法 - xib
     // 首先在tableview注册cell:
     // [_tableView registerNib:[UINib nibWithNibName:@"CustomCell3" bundle:nil] forCellReuseIdentifier:[CustomCell4 reuseIdentifier]];
-    /*CustomCell3 *cell = [tableView dequeueReusableCellWithIdentifier:[CustomCell3 reuseIdentifier]];
+    CustomCell3 *cell = [tableView dequeueReusableCellWithIdentifier:[CustomCell3 reuseIdentifier]];
+    
+    //如果不先注册cell，则要写这些：
     if(!cell){
         NSLog(@"没有cell，开始载入cell");
         cell = [[CustomCell3 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[CustomCell3 reuseIdentifier]];
         //cell = [[[UINib nibWithNibName:@"CustomCell3" bundle:nil] instantiateWithOwner:self options:nil] firstObject]; //也可以
         //cell =  [[[NSBundle mainBundle] loadNibNamed:@"CustomCell3" owner:self options:nil] firstObject]; //也可以
-        //cell = [[CustomCell4 alloc] init]; //也可以
-    }*/
+//        cell = [[CustomCell3 alloc] init]; //也可以
+    }
     
     
     // 第四种写法 - xib （墙裂推荐）
     // 首先在tableview注册cell:
     // [_tableView registerNib:[UINib nibWithNibName:@"CustomCell4" bundle:nil] forCellReuseIdentifier:[CustomCell4 reuseIdentifier]];
-    CustomCell4 *cell = [tableView dequeueReusableCellWithIdentifier:[CustomCell4 reuseIdentifier] forIndexPath:indexPath];
+//    CustomCell4 *cell = [tableView dequeueReusableCellWithIdentifier:[CustomCell4 reuseIdentifier] forIndexPath:indexPath];
 
     
     return cell;

@@ -12,9 +12,9 @@
 
 /// 初始化cell时 第一调用
 + (void)initialize{
-    
+
     if (self == [CustomCell3 class]) {
-        
+
     }
 }
 
@@ -28,7 +28,9 @@
         // [[[UINib nibWithNibName:@"CustomCell3" bundle:nil] instantiateWithOwner:self options:nil] firstObject];
         // 下面这句就可以不要
         self = [[[NSBundle mainBundle] loadNibNamed:@"CustomCell3" owner:self options:nil] firstObject];
+        
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         NSLog(@"载入cell完成");
     }
     return self;
