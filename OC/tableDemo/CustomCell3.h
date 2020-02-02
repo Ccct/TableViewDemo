@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)reuseIdentifier;
 
++(instancetype)getCellWithTable:(UITableView *)tableView;
+
 @end
 
 NS_ASSUME_NONNULL_END

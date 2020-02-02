@@ -81,9 +81,9 @@
 
     // 第三种写法 - xib
     // 首先在tableview注册cell:
-    // [_tableView registerNib:[UINib nibWithNibName:@"CustomCell3" bundle:nil] forCellReuseIdentifier:[CustomCell4 reuseIdentifier]];
+     [_tableView registerNib:[UINib nibWithNibName:@"CustomCell3" bundle:nil] forCellReuseIdentifier:[CustomCell4 reuseIdentifier]];
     CustomCell3 *cell = [tableView dequeueReusableCellWithIdentifier:[CustomCell3 reuseIdentifier]];
-    
+
     //如果不先注册cell，则要写这些：
     if(!cell){
         NSLog(@"没有cell，开始载入cell");
@@ -93,8 +93,10 @@
 //        cell = [[CustomCell3 alloc] init]; //也可以
     }
     
+    // 第四种写法 - 将逻辑放到了cell，简化controller
+    //CustomCell3 *cell = [CustomCell3 getCellWithTable:self.tableView];
     
-    // 第四种写法 - xib （墙裂推荐）
+    // 第五种写法 - xib （墙裂推荐）
     // 首先在tableview注册cell:
     // [_tableView registerNib:[UINib nibWithNibName:@"CustomCell4" bundle:nil] forCellReuseIdentifier:[CustomCell4 reuseIdentifier]];
 //    CustomCell4 *cell = [tableView dequeueReusableCellWithIdentifier:[CustomCell4 reuseIdentifier] forIndexPath:indexPath];

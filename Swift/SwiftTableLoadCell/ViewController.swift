@@ -56,12 +56,15 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
 //        return cell3
         
         
-        var cell4 = tableView.dequeueReusableCell(withIdentifier: tableCell4Id)
-        if cell4 == nil {
-            let nib = UINib(nibName: "tableCell4", bundle: Bundle(for: type(of: self)))
-            cell4 = nib.instantiate(withOwner: self, options: nil)[0] as? tableCell4
-        }
-        return cell4!
+//        var cell4 = tableView.dequeueReusableCell(withIdentifier: tableCell4Id)
+//        if cell4 == nil {
+//            let nib = UINib(nibName: "tableCell4", bundle: nil)
+//            cell4 = nib.instantiate(withOwner: self, options: nil)[0] as? tableCell4
+//        }
+        
+        //推荐 将逻辑放到cell，简化controller
+        let cell4 = tableCell4.getCell4(tableView: self.tableV)
+        return cell4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
