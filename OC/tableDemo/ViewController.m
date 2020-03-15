@@ -81,7 +81,7 @@
 
     // 第三种写法 - xib
     // 首先在tableview注册cell:
-     [_tableView registerNib:[UINib nibWithNibName:@"CustomCell3" bundle:nil] forCellReuseIdentifier:[CustomCell4 reuseIdentifier]];
+//     [_tableView registerNib:[UINib nibWithNibName:@"CustomCell3" bundle:nil] forCellReuseIdentifier:[CustomCell4 reuseIdentifier]];
     CustomCell3 *cell = [tableView dequeueReusableCellWithIdentifier:[CustomCell3 reuseIdentifier]];
 
     //如果不先注册cell，则要写这些：
