@@ -18,13 +18,20 @@
     }
 }
 
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    
+}
+
 /// 通过xib载入cell 第二调用
+/// 如果已经在controller注册过xib，这里不走 会走awakeFromNib
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
         
         // 如果 controller 写了 ：
         // cell =  [[[NSBundle mainBundle] loadNibNamed:@"CustomCell3" owner:self options:nil] firstObject];
+        // 或
         // [[[UINib nibWithNibName:@"CustomCell3" bundle:nil] instantiateWithOwner:self options:nil] firstObject];
         // 下面这句就可以不要
         self = [[[NSBundle mainBundle] loadNibNamed:@"CustomCell3" owner:self options:nil] firstObject];
